@@ -23,7 +23,7 @@ $fb = new \Facebook\Facebook([
 try {
    
 // Get your UserNode object, replace {access-token} with your token
-  $response = $fb->get('/me', 'EAAHnZBPe6nnMBADkpKY1gcGZAyEGKptJN64SglKkqdyHZAUZBWLbmZAYTLdAeqyoEg75T6WdYOWZALatH30WMLX5R3skAdJ7CCpW1ACGZAdNZBe02lmpvxwEqcKAdJjvAWZBdmxT9TBc69tyenTTXaPeQiLGhXXGh9rMkB0dvxYGpsk8qt6cOL0ZCLOE85KUFl13Okda2sYXmohWZBC7JwEK8sD3wshlJuLyNDm1ts5NvNTrO4AR0YiWJJD');
+  $response = $fb->get('/me', 'EAAHnZBPe6nnMBAE9HUxRQo6bdwQBTD26hXMQsbV7BswRyZA4AVp70FL04ElZAnZC9JabGQ85QuFqlq0ytVTCKXPwmI00SZBRwP4JDlSYimxdxeyIZBc9VsE1tvEHHL991Tf16nZBxCsXzEThT6LCtHRfTQyin574QBjTegEcWAakWC6IFK69CzGjiixX1KiZAogg3N70adGj2ZBCFqkqWFmOcAlp1VbTO8n3du9LZCBPKifZCNZCDRZCDyELE');
 
 } catch(\Facebook\Exceptions\FacebookResponseException $e) {
         // Returns Graph API errors when they occur
