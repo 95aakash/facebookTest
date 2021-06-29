@@ -9,12 +9,19 @@ if ($verify_token === 'testtoken') {
 }
 
 /*........RECEIVING INPUT FROM fACEBOOK.........*/
-$input = json_decode(file_get_contents('php://input') , true);
+// $input = json_decode(file_get_contents('php://input') , true);
+// echo '<pre>',print_r( $input, true ),'</pre>';
+$inputJSON = file_get_contents('php://input');
+$input = json_decode($inputJSON, TRUE); //convert JSON into array
 print_r($input);
 echo $input;
-http_response_code(200)
+http_response_code(200);
+if(isset($_POST['entry']))
+{
+    echo 'YES';
+}
 
-header("HTTP/1.1 200 OK");
+// header("HTTP/1.1 200 OK");
 
 // $input = json_decode(file_get_contents('php://input'), true);
 // // echo "testing app webhook";
