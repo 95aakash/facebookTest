@@ -10,8 +10,11 @@
   <h1>Get My Name from Facebook</h1>
 
 <?php
+// echo 'hi';
 
-require_once __DIR__ . '../vendor/autoload.php';   
+// print(__DIR__)  ;
+require_once '../vendor/autoload.php';   
+
 
 $fb = new \Facebook\Facebook([
   'app_id' => '536531470818931',           
@@ -23,7 +26,7 @@ $fb = new \Facebook\Facebook([
 try {
    
 // Get your UserNode object, replace {access-token} with your token
-  $response = $fb->get('/me', 'EAAHnZBPe6nnMBAE9HUxRQo6bdwQBTD26hXMQsbV7BswRyZA4AVp70FL04ElZAnZC9JabGQ85QuFqlq0ytVTCKXPwmI00SZBRwP4JDlSYimxdxeyIZBc9VsE1tvEHHL991Tf16nZBxCsXzEThT6LCtHRfTQyin574QBjTegEcWAakWC6IFK69CzGjiixX1KiZAogg3N70adGj2ZBCFqkqWFmOcAlp1VbTO8n3du9LZCBPKifZCNZCDRZCDyELE');
+  $response = $fb->get('/me', 'EAAHnZBPe6nnMBAAVmNmsvQaIbsgopQ2ndaYbesSLXgV9e3k1zI2ZBmCYTY0sPlX5rZAhL5r11RxVxwfmnwPZBZAEoMBZBtHv7NtbtWKleoPV5H5g4ZCkEuF8N7Hpnj4aKVLl6p94axdj138MKZAG4OGkDMo11cSc8AqqYuEOMmgfcM5tLycNb4weMCwVVwK9ijRngS1wEmAS4p0kNXZBP3UvptWjsBAFWW5tUzSz0nZCgUaX0z2a7VIBf6');
 
 } catch(\Facebook\Exceptions\FacebookResponseException $e) {
         // Returns Graph API errors when they occur
