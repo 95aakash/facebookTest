@@ -2,14 +2,14 @@
 $challenge = $_REQUEST['hub_challenge'];
 $verify_token = $_REQUEST['hub_verify_token'];
 
-echo "testing app webhook";
+
 // Set this Verify Token Value on your Facebook App 
 if ($verify_token === 'testtoken') {
   echo $challenge;
 }
 
 $input = json_decode(file_get_contents('php://input'), true);
-
+echo "testing app webhook";
 // Get the Senders Graph ID
 $sender = $input['entry'][0]['messaging'][0]['sender']['id'];
 
