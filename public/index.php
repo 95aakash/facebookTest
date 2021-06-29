@@ -1,52 +1,51 @@
-<!DOCTYPE html>
-<!-- <html> -->
-<head>
-  <title>
-    My Name 
-  </title>
-</head>
-
-<body>
-  <h1>Get My Name from Facebook serve</h1>
-
 <?php
-// echo 'hi';
+$challenge = $_REQUEST['hub_challenge'];
+$verify_token = $_REQUEST['hub_verify_token'];
 
-// print(__DIR__)  ;
-require_once '../vendor/autoload.php';   
-
-
-$fb = new \Facebook\Facebook([
-  'app_id' => '536531470818931',           
-  'app_secret' => 'b5b0bba91a0c9d1213a876cf33c47f6f',  
-  'graph_api_version' => 'v5.0',
-]);
-
-
-try {
-   
-// Get your UserNode object, replace {access-token} with your token
-  $response = $fb->get('/me', 'EAAHnZBPe6nnMBAPsZAvZAZA6rt0XRuS7ItWmWh943ZBLONJggbSHV1bcYjCvHWqkAgapY32ZBBTpQD9KpJVjf2WvNF6cUf2egZBZAMPeTXQ2x7Of81QREEyyilJ57sZBXi0rUb1f7WEHussqhZC8ae5ogSwaUcvKhvSMBJ4Jbkt647u43eN0DlM3yhckJq8CZC3ZBc3xQg8KiyHtbVoRn88P74wPxZBVh8d3SzZBE93tcZAiMFbmZA3AwfCIX7Uh');
-
-} catch(\Facebook\Exceptions\FacebookResponseException $e) {
-        // Returns Graph API errors when they occur
-  echo 'Graph returned an error: ' . $e->getMessage();
-  exit;
-} catch(\Facebook\Exceptions\FacebookSDKException $e) {
-        // Returns SDK errors when validation fails or other local issues
-  echo 'Facebook SDK returned an error: ' . $e->getMessage();
-  exit;
+echo "testing app webhook";
+// Set this Verify Token Value on your Facebook App 
+if ($verify_token === 'testtoken') {
+  echo $challenge;
 }
 
-$me = $response->getGraphUser();
+$input = json_decode(file_get_contents('php://input'), true);
 
-       //All that is returned in the response
-echo 'Data returned from the Facebook : ' . $me;
+// Get the Senders Graph ID
+$sender = $input['entry'][0]['messaging'][0]['sender']['id'];
 
-       //Print out my name
-// echo 'My name is ' . $me->getName();
+// Get the returned message
+$message = $input['entry'][0]['messaging'][0]['message']['text'];
 
+print_r($sender);
+print_r($message)
+
+//API Url and Access Token, generate this token value on your Facebook App Page
+// $url = 'https://graph.facebook.com/v2.6/me/messages?access_token=<ACCESS-TOKEN-VALUE>';
+
+// //Initiate cURL.
+// $ch = curl_init($url);
+
+// //The JSON data.
+// $jsonData = '{
+//     "recipient":{
+//         "id":"' . $sender . '"
+//     }, 
+//     "message":{
+//         "text":"The message you want to return"
+//     }
+// }';
+
+// //Tell cURL that we want to send a POST request.
+// curl_setopt($ch, CURLOPT_POST, 1);
+
+// //Attach our encoded JSON string to the POST fields.
+// curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData);
+
+// //Set the content type to application/json
+// curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+
+// //Execute the request but first check if the message is not empty.
+// if(!empty($input['entry'][0]['messaging'][0]['message'])){
+//   $result = curl_exec($ch);
+// }
 ?>
-
-</body>
-</html>
