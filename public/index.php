@@ -12,7 +12,7 @@ if ($verify_token === 'testtoken') {
 $input = json_decode(file_get_contents('php://input') , true);
 print_r($input);
 echo $input;
-http_response_code(200)
+http_response_code(200);
 
 header("HTTP/1.1 200 OK");
 
