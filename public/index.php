@@ -8,44 +8,50 @@ if ($verify_token === 'testtoken') {
   echo $challenge;
 }
 
-$input = json_decode(file_get_contents('php://input'), true);
-// echo "testing app webhook";
-// Get the Senders Graph ID
-$sender = $input['entry'][0]['messaging'][0]['sender']['id'];
+/*........RECEIVING INPUT FROM fACEBOOK.........*/
+$input = json_decode(file_get_contents('php://input') , true);
+print_r($input);
 
-// Get the returned message
-$message = $input['entry'][0]['messaging'][0]['message']['text'];
+header("HTTP/1.1 200 OK");
 
-// print_r($sender);
-// print_r($message)
+// $input = json_decode(file_get_contents('php://input'), true);
+// // echo "testing app webhook";
+// // Get the Senders Graph ID
+// $sender = $input['entry'][0]['messaging'][0]['sender']['id'];
 
-//API Url and Access Token, generate this token value on your Facebook App Page
-$url = 'https://graph.facebook.com/v2.6/me/messages?access_token=EAAHnZBPe6nnMBAPsZAvZAZA6rt0XRuS7ItWmWh943ZBLONJggbSHV1bcYjCvHWqkAgapY32ZBBTpQD9KpJVjf2WvNF6cUf2egZBZAMPeTXQ2x7Of81QREEyyilJ57sZBXi0rUb1f7WEHussqhZC8ae5ogSwaUcvKhvSMBJ4Jbkt647u43eN0DlM3yhckJq8CZC3ZBc3xQg8KiyHtbVoRn88P74wPxZBVh8d3SzZBE93tcZAiMFbmZA3AwfCIX7Uh';
+// // Get the returned message
+// $message = $input['entry'][0]['messaging'][0]['message']['text'];
 
-//Initiate cURL.
-$ch = curl_init($url);
+// // print_r($sender);
+// // print_r($message)
 
-//The JSON data.
-$jsonData = '{
-    "recipient":{
-        "id":"' . $sender . '"
-    }, 
-    "message":{
-        "text":"The message you want to return"
-    }
-}';
+// //API Url and Access Token, generate this token value on your Facebook App Page
+// $url = 'https://graph.facebook.com/v2.6/me/messages?access_token=EAAHnZBPe6nnMBAPsZAvZAZA6rt0XRuS7ItWmWh943ZBLONJggbSHV1bcYjCvHWqkAgapY32ZBBTpQD9KpJVjf2WvNF6cUf2egZBZAMPeTXQ2x7Of81QREEyyilJ57sZBXi0rUb1f7WEHussqhZC8ae5ogSwaUcvKhvSMBJ4Jbkt647u43eN0DlM3yhckJq8CZC3ZBc3xQg8KiyHtbVoRn88P74wPxZBVh8d3SzZBE93tcZAiMFbmZA3AwfCIX7Uh';
 
-//Tell cURL that we want to send a POST request.
-curl_setopt($ch, CURLOPT_POST, 1);
+// //Initiate cURL.
+// $ch = curl_init($url);
 
-//Attach our encoded JSON string to the POST fields.
-curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData);
+// //The JSON data.
+// $jsonData = '{
+//     "recipient":{
+//         "id":"' . $sender . '"
+//     }, 
+//     "message":{
+//         "text":"The message you want to return"
+//     }
+// }';
 
-//Set the content type to application/json
-curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+// //Tell cURL that we want to send a POST request.
+// curl_setopt($ch, CURLOPT_POST, 1);
 
-//Execute the request but first check if the message is not empty.
-if(!empty($input['entry'][0]['messaging'][0]['message'])){
-  $result = curl_exec($ch);
-}
+// //Attach our encoded JSON string to the POST fields.
+// curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData);
+
+// //Set the content type to application/json
+// curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+
+// //Execute the request but first check if the message is not empty.
+// if(!empty($input['entry'][0]['messaging'][0]['message'])){
+//   $result = curl_exec($ch);
+// }
 ?>
