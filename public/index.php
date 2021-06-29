@@ -11,7 +11,7 @@
 
 <?php
 
-require_once __DIR__ . '/vendor/autoload.php';   
+require_once __DIR__ . '../vendor/autoload.php';   
 
 $fb = new \Facebook\Facebook([
   'app_id' => '536531470818931',           
@@ -23,7 +23,7 @@ $fb = new \Facebook\Facebook([
 try {
    
 // Get your UserNode object, replace {access-token} with your token
-  $response = $fb->get('/me', 'EAAHnZBPe6nnMBAFJ9pAFgy5iJadwdza0zwqOYVXxRJhhNcLE3AfzZAcZAmjG2nSih1p4t3RBUl19vWb3efS5P54XMZBf595C3H4Uqq0QhWGek00JKBkUZBZBi6GlwYx3e49rbc2Fnq2TCaoT97Bhe22uKvsWZBSuKZAYzGp6GQ591KQV3vXKLwn1K3S17Q2cBIRfW5l2ZCv0ZC5N5ZA22zZA2UQcal59MEFqKZBzjpaexVUs9kvob0oewTJke');
+  $response = $fb->get('/me', 'EAAHnZBPe6nnMBADkpKY1gcGZAyEGKptJN64SglKkqdyHZAUZBWLbmZAYTLdAeqyoEg75T6WdYOWZALatH30WMLX5R3skAdJ7CCpW1ACGZAdNZBe02lmpvxwEqcKAdJjvAWZBdmxT9TBc69tyenTTXaPeQiLGhXXGh9rMkB0dvxYGpsk8qt6cOL0ZCLOE85KUFl13Okda2sYXmohWZBC7JwEK8sD3wshlJuLyNDm1ts5NvNTrO4AR0YiWJJD');
 
 } catch(\Facebook\Exceptions\FacebookResponseException $e) {
         // Returns Graph API errors when they occur
