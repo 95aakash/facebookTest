@@ -9,15 +9,15 @@ if ($verify_token === 'testtoken') {
 }
 
 $input = json_decode(file_get_contents('php://input'), true);
-echo "testing app webhook";
+// echo "testing app webhook";
 // Get the Senders Graph ID
 $sender = $input['entry'][0]['messaging'][0]['sender']['id'];
 
 // Get the returned message
 $message = $input['entry'][0]['messaging'][0]['message']['text'];
 
-print_r($sender);
-print_r($message)
+// print_r($sender);
+// print_r($message)
 
 //API Url and Access Token, generate this token value on your Facebook App Page
 // $url = 'https://graph.facebook.com/v2.6/me/messages?access_token=<ACCESS-TOKEN-VALUE>';
