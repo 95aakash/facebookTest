@@ -16,10 +16,7 @@ $input = json_decode($inputJSON, TRUE); //convert JSON into array
 print_r($input);
 echo $input;
 http_response_code(200);
-if(isset($_POST['entry']))
-{
-    echo 'YES';
-}
+
 
 // header("HTTP/1.1 200 OK");
 
