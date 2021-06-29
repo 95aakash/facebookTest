@@ -7,7 +7,7 @@
 </head>
 
 <body>
-  <h1>Get My Name from Facebook</h1>
+  <h1>Get My Name from Facebook server</h1>
 
 <?php
 // echo 'hi';
